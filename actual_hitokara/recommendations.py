@@ -6,7 +6,7 @@ INDIE_HITS = "RDCLAK5uy_kFs4DBLn3pFmAiXodtYyzaB5Xa_njue3A"
 ROCK_HITS = "RDCLAK5uy_k6CicQMBYujmwL9DB5xBripE9EfgeKpHM"
 
 
-class Recomendations:
+class Recommendations:
     def __init__(self):
         self.ytmusic = YTMusic("oauth.json")
 

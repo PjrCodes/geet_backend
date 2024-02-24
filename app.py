@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from actual_hitokara import lyrics
-from actual_hitokara.recomendations import Recomendations
+from actual_hitokara.recommendations import Recommendations
 from actual_hitokara import search
 
 app = Flask(__name__)
@@ -27,18 +27,18 @@ def get_lyrics():
         return jsonify(lyrics.hn_fetch_lyrics(artist_name, song_name))
 
 
-@app.route("/recomendations/<genre>", methods=["GET"])
-def get_recomendations(genre):
-    recomendations = Recomendations()
+@app.route("/recommendations/<genre>", methods=["GET"])
+def get_recommendations(genre):
+    recommendations = Recommendations()
 
     if genre == "pop":
-        return jsonify(recomendations.pop_hits())
+        return jsonify(recommendations.pop_hits())
     elif genre == "hip_hop":
-        return jsonify(recomendations.hip_hop_hits())
+        return jsonify(recommendations.hip_hop_hits())
     elif genre == "indie":
-        return jsonify(recomendations.indie_hits())
+        return jsonify(recommendations.indie_hits())
     elif genre == "rock":
-        return jsonify(recomendations.rock_hits())
+        return jsonify(recommendations.rock_hits())
     else:
         return jsonify({"Error": "Invalid genre"})
 
